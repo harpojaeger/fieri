@@ -1,6 +1,7 @@
 <html>
 <head>
   <title>Today's Menu</title>
+  <!-- Basic styles for the menu -->
   <style>
   div.dishName {
     font-weight:bold;
