@@ -24,7 +24,6 @@
   // Define a class to handle formatting the output for each dish
   class Dish {
     function __construct($id, $name, $description){
-      // if(!$id && !$name && !$description) die('Dish requires id, name & description.')
       $this->id = $id;
       $this->name = $name;
       $this->description = $description;
@@ -46,18 +45,14 @@
   echo('<h2>Lunch</h2><ul class="dishList">');
   while($this_dish = $lunch->fetch_assoc()){
     $dish = new Dish($this_dish['dish_id'],$this_dish['dish_name'],$this_dish['dish_description']);
-
     echo("<li>".$dish->html()."</li>");
   }
-
   echo('</ul><h2>Dinner</h2><ul class="dishList">');
   while($this_dish = $dinner->fetch_assoc()){
     $dish = new Dish($this_dish['dish_id'],$this_dish['dish_name'],$this_dish['dish_description']);
-
     echo("<li>".$dish->html()."</li>");
   }
   echo("</ul>");
-
 
   // Close the db connection
   mysqli_close($conn)
