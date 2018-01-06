@@ -42,17 +42,21 @@
 
   $dinner = $conn->query("SELECT dishes.name AS dish_name, dishes.description AS dish_description, dishes.id AS dish_id FROM dishes dishes INNER JOIN meals AS meals ON dishes.id=meals.dish_id WHERE meals.name='dinner'");
 
-  echo('<h2>Lunch</h2><ul class="dishList">');
+  // Output the lunch menu
+  echo("<h2>Lunch</h2><ul class='dishList'>");
   while($this_dish = $lunch->fetch_assoc()){
     $dish = new Dish($this_dish['dish_id'],$this_dish['dish_name'],$this_dish['dish_description']);
-    echo("<li>".$dish->html()."</li>");
+    echo('<li>'.$dish->html().'</li>');
   }
-  echo('</ul><h2>Dinner</h2><ul class="dishList">');
+  echo('</ul>');
+
+  // Output the dinner menu
+  echo("<h2>Dinner</h2><ul class='dishList'>");
   while($this_dish = $dinner->fetch_assoc()){
     $dish = new Dish($this_dish['dish_id'],$this_dish['dish_name'],$this_dish['dish_description']);
-    echo("<li>".$dish->html()."</li>");
+    echo('<li>'.$dish->html().'</li>');
   }
-  echo("</ul>");
+  echo('</ul>');
 
   // Close the db connection
   mysqli_close($conn)
